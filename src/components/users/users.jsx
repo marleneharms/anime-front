@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PostServices from "../../services/post-service";
 import AuthService from "../../services/auth-service";
+import NavBar from "../navbar/navbar";
 
 const Users = () => {
   const [animeList, setAnimeList] = useState([]);
@@ -69,6 +70,7 @@ const Users = () => {
 
   return (
     <div>
+      <NavBar/>
       <h2>Posts</h2>
       {animeList.map((post) => (
         <div className="card" key={post._id}>
