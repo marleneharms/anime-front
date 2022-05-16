@@ -5,7 +5,7 @@ import PostServices from "../../services/post-service";
 import AuthService from "../../services/auth-service";
 import NavBar from "../navbar/navbar";
 
-const Users = () => {
+const AnimeList = () => {
   const [animeList, setAnimeList] = useState([]);
   const navigate = useNavigate();
   const placeholderImg = "https://via.placeholder.com/150";
@@ -38,14 +38,6 @@ const Users = () => {
       },
       (error) => {
         console.log(error.response);
-        // if (error.response && error.response.status === 403) {
-        //   AuthService.logout();
-        //   navigate("/register");
-        //   window.location.reload();
-        // } else if (error.response && error.response.status === 401) {
-        //   navigate("/login");
-        //   window.location.reload();
-        // }
       }
     );
   };
@@ -123,4 +115,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default AnimeList;

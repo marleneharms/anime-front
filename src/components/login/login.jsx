@@ -14,8 +14,8 @@ const Login = () => {
     try {
       await AuthServices.login(email, password).then(
         () => {
-          navigate("/users");
-          window.location.reload();
+          navigate("/anime_list");
+          window.location.reload(); 
         },
         (error) => {
           setMsg(error.response.data.msg);

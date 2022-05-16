@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../../services/auth-service";
 
@@ -36,7 +36,7 @@ function NavBar() {
             Home
           </Link>
 
-          <Link to={"/users"} className="navbar-item">
+          <Link to={"/anime_list"} className="navbar-item">
             Anime List
           </Link>
 

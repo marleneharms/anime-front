@@ -5,11 +5,12 @@ import AuthServices from "../../services/auth-service";
 import PostServices from "../../services/post-service";
 
 const AddAnime = () => {
-  const [title, setTitle] = useState("");
-  // eslint-disable-next-line
-  const [genre, setGenre] = useState("");
+  
+  const [title, setTitle] = useState(""); // attribute this returns an array
+  const [genre, setGenre] = useState(""); 
   const [imgURL, setImgURL] = useState("");
   const [watched, setWatched] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,23 +19,16 @@ const AddAnime = () => {
     if (!user) {
       navigate("/login");
     }
-  });
+  }, []);
 
   const handleSave = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // to not send the form
+
     // validate genre is not empty
     if (genre === "") {
       alert("Please enter a genre");
       return;
     }
-
-    // validate imgURL to make sure it is a valid url using regex
-    // const regex = /(http(s)?:)\/\/(www\.)?[a-zA-Z0-9]+\.[a-zA-Z]+(\/\S*)?/; 
-    // if (!regex.test(imgURL)) {
-    //   alert("Please enter a valid url");
-    //   return;
-    // }
-
     // Validate title is not empty
     if (title === "") {
       alert("Please enter a title");
@@ -51,7 +45,7 @@ const AddAnime = () => {
     try {
       await PostServices.addAnime(newAnime).then(() => {
         alert("Anime added successfully");
-        navigate("/users");
+        navigate("/anime_list");
       });
     } catch (error) {
       console.log(error);
